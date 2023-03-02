@@ -1,0 +1,20 @@
+cabal-version:      2.4
+name:               hip-barcodes
+version:            0.1.0.0
+
+executable hip-barcodes
+  hs-source-dirs:   .
+  main-is:          HipBarcodes.hs
+  other-modules:    Code128
+  -- The following allows a different name than `Main` for the main module
+  ghc-options:      -main-is HipBarcodes
+  build-depends:    base, containers, hip
+  default-language: GHC2021
+
+executable tests
+  hs-source-dirs:   .
+  main-is:          Tester.hs
+  other-modules:    HipBarcodes, Code128
+  ghc-options:      -main-is Tester
+  build-depends:    base, containers, hip
+  default-language: GHC2021
