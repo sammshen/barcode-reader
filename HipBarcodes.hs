@@ -1,9 +1,5 @@
 module HipBarcodes where
 
--- You may add, remove, or edit imports as you wish. Note the use of
--- qualified imports to avoid collisions between common names. For
--- example, Prelude and Data.Map and Graphics.Image all define `map`.
-
 import           Code128
 import           Data.Char
 import           Data.Map (Map, (!))
@@ -26,7 +22,7 @@ cToB = 100
 
 
 --------------------------------------------------------------------------------
--- 1. General Decoding
+-- General Decoding
 
 decode :: TheCodes -> BC -> Either Error String
 decode theCodes (start_, data_, checksum_, stop_)
@@ -62,7 +58,7 @@ decodeCUntil theCodes (firstSymbol : remSymbols) curr_str =
     decodeCUntil theCodes remSymbols (curr_str ++ c_str)
 
 --------------------------------------------------------------------------------
--- 2. Optimal Encodings (Optional)
+-- Optimal Encodings (To-Do)
 
 encode :: TheCodes -> String -> Either Error BC
 encode theCodes str
@@ -72,7 +68,7 @@ encode theCodes str
 
 
 --------------------------------------------------------------------------------
--- 3. Making Barcodes
+-- Making Barcodes
 
 makeBarcode :: FilePath -> Int -> Int -> BCString -> IO ()
 makeBarcode filePath imageHeight moduleWidth (BCString symbols) = do
@@ -98,7 +94,7 @@ moduleToBW :: Bool -> Int
 moduleToBW bool = if bool then 0 else 1
 
 --------------------------------------------------------------------------------
--- 4. Scanning Barcodes
+-- Scanning Barcodes
 
 scanBarcode :: FilePath -> IO BCString
 scanBarcode filePath = do
@@ -135,7 +131,7 @@ everyEleven xs = do
   if (length symbol) < 11 then []
   else symbol : everyEleven bs
 --------------------------------------------------------------------------------
--- 5. Scanning Designed Barcodes (To-Do)
+-- Scanning Designed Barcodes (To-Do)
 
 scanDesignedBarcode :: FilePath -> IO BCString
 scanDesignedBarcode filePath =
