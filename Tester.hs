@@ -72,7 +72,6 @@ tests_decode :: TheCodes -> [Test BC String]
 tests_decode theCodes =
   map (uncurry $ Test "decode theCodes" $ decode theCodes)
 
-    -- Tests from previous assignment's starter code...
     [ ( (104,[40,65,83,75,69,76,76,1],1,106)
       , Right "Haskell!"
       )
@@ -91,8 +90,6 @@ tests_decode theCodes =
     , ( (0, [], 0, 0)
       , Left ()
       )
-
-    -- ... plus some new tests
     , ( (104,[17],18,106)
       , Right "1"
       )
@@ -137,7 +134,6 @@ tests_decode theCodes =
 tests_encode theCodes =
   map (uncurry $ Test "encode theCodes" $ encode theCodes)
 
-    -- Tests from previous assignment's starter code...
     [ ( "Haskell!"
       , Right (104,[40,65,83,75,69,76,76,1],1,106)
       )
@@ -150,8 +146,6 @@ tests_encode theCodes =
     , ( "3141592653"
       , Right (105,[31,41,59,26,53],43,106)
       )
-
-    -- ... plus some new tests
     , ( "1"
       , Right (104,[17],18,106)
       )
