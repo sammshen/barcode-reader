@@ -6,7 +6,7 @@ executable hip-barcodes
   hs-source-dirs:   .
   main-is:          HipBarcodes.hs
   other-modules:    Code128
-  -- The following allows a different name than `Main` for the main module
+  -- Allows a different name than `Main` for the main module
   ghc-options:      -main-is HipBarcodes
   build-depends:    base, containers, hip
   default-language: GHC2021
