@@ -47,7 +47,7 @@ type Error = String
 
 
 --------------------------------------------------------------------------------
--- 1. Data Loading
+-- Data Loading
 
 loadTheCodes :: IO TheCodes
 loadTheCodes = do
@@ -57,7 +57,6 @@ loadTheCodes = do
 rowsToCodes :: [[String]] -> TheCodes
 rowsToCodes rows =
 
-  -- Perfect opportunity for NamedFieldPuns. Try it!
   TheCodes
     { startB = 104, startC = 105, stop = 106
     , idsToSymbols = idsToSymbols
@@ -144,7 +143,7 @@ readCValue _ = Right "Invalid C Value"
 
 
 --------------------------------------------------------------------------------
--- 2. Basic Encodings
+-- Basic Encodings
 
 encodeB :: TheCodes -> String -> Either Error BC      
 encodeB TheCodes{startB = startB, bEncodings = bEncodings, stop = stop} bStr =
@@ -189,7 +188,7 @@ sequenceMaybe ((Just a):mbas) =
     Just as -> Just (a : as)
 
 --------------------------------------------------------------------------------
--- 3. Basic Decodings
+-- Basic Decodings
 
 decodeB :: TheCodes -> BC -> Either Error String 
 decodeB TheCodes{startB = startB, stop = stop, bDecodings = bDecodings}
@@ -233,7 +232,7 @@ getValidCValue :: CValue -> String
 getValidCValue (Left (c1, c2)) = [c1, c2]
 
 --------------------------------------------------------------------------------
--- 4. Barcode String Manipulation
+-- Barcode String Manipulation
 
 finalBar     = "11"
 symbolLength =  11
@@ -287,7 +286,7 @@ run f a = do
 
 
 --------------------------------------------------------------------------------
--- User Interface
+-- UI
 
 bcToBCString :: TheCodes -> BC -> BCString
 bcToBCString theCodes (start, data_, checksum, stop) =
