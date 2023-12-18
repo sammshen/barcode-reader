@@ -6,4 +6,4 @@ Terminal-Based Barcode Scanner
 
 To-Do:
 
-Add Documentation
+add robustness for wackier barcodes
