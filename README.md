@@ -1,4 +1,4 @@
-# barcode-reader
+REVISIT AND IMPROVE!!!!!!     
 
 Terminal-Based Barcode Scanner
 
